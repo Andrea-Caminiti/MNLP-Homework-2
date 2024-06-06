@@ -18,14 +18,6 @@ from transformers import (
 )
 import argparse
 
-def train(train_d_set: Dataset, val_d_set: Dataset):
-    '''Training function'''
-    pass
-
-def test(test_d_set: Dataset):
-    '''Test function'''
-    pass
-
 def compute_metrics(eval_pred):
    '''Function to computer accuracy, f1-score, precision, and recall'''
    l_accuracy = load_metric('accuracy', trust_remote_code=True)
@@ -114,12 +106,11 @@ def main(args):
         #Load dataset
         NLI_dataset = load_dataset("tommasobonomo/sem_augmented_fever_nli")
         #Launch test
-        test(NLI_dataset['test'])
+        
     else:
         #Load dataset 
         NLI_dataset= load_dataset("iperbole/adversarial_fever_nli")
         #Launch test
-        test(NLI_dataset['test'])
 
 
 if __name__ == '__main__':
